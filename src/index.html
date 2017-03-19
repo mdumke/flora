@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="Flora">
+<html lang="en" ng-app="Flowers">
 <head>
   <meta charset="UTF-8">
-  <title>Flora</title>
+  <title>Flowers</title>
 </head>
 <body>
 
-  Flora und Fauna
+  <div class="flowers">
+    <header class="flowers__header">
+      <h1 class="flowers__title">Flowers</h1>
+      <p>Here's the only flower I know.</p>
+    </header>
+
+    <div ng-controller="FlowersController">
+      {{ flower.name }}
+    </div>
+  </div>
 
 </body>
 </html>

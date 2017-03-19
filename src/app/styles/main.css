@@ -1,0 +1,14 @@
+.flowers {
+  margin: 40px 0 0 40px;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    color: green;
+  }
+
+  &__title {
+    margin-bottom: 0px;
+  }
+
+}

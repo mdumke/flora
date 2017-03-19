@@ -1,5 +1,5 @@
-import angular from 'angular'
+import 'angular'
 
-(function () {
-  angular.module('Flora', [])
-}())
+import './scripts/app'
+
+import './styles/main.css'
