@@ -5,6 +5,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const VENDOR_LIBS = ['angular']
 
+process.traceDeprecation = true
+
 module.exports = {
   entry: {
     bundle: './src/app/index.js',
@@ -13,7 +15,8 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js'
+    filename: '[name].[chunkhash].js',
+    publicPath: '/'
   },
 
   module: {
@@ -38,13 +41,27 @@ module.exports = {
             'postcss-loader'
           ]
         })
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 40000
+            }
+          },
+          'image-webpack-loader'
+        ]
       }
     ]
   },
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/index.html',
+      inject: 'head',
+      filename: './index.html'
     }),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest']
@@ -54,5 +71,10 @@ module.exports = {
     })
   ],
 
-  devtool: 'cheap-module-eval-source-map'
+  devtool: 'cheap-module-eval-source-map',
+
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    port: 8888
+  }
 }

@@ -1,14 +1,21 @@
 .flowers {
-  margin: 40px 0 0 40px;
+  margin: 40px 0 0 60px;
   display: flex;
   flex-direction: column;
 
   &__header {
-    color: green;
+    color: darkgreen;
   }
 
   &__title {
     margin-bottom: 0px;
+  }
+
+  &__name {
+    color: green;
+    margin-bottom: 2px;
+    font-size: 1.4rem;
+    font-variant: small-caps;
   }
 
 }

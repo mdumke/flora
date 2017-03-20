@@ -1,3 +1,6 @@
+import sunflowerImgBig from '../images/sunflower_big.jpg'
+import sunflowerImgSmall from '../images/sunflower_small.jpg'
+
 (function (global) {
   global.angular
     .module('Flowers', [])
@@ -7,7 +10,9 @@
 
   function FlowersController ($scope) {
     $scope.flower = {
-      name: 'sunflower'
+      name: 'Sunflower',
+      urlSmall: sunflowerImgSmall,
+      urlBig: sunflowerImgBig
     }
   }
 }(window))
